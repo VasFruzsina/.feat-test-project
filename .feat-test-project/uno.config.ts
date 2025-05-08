@@ -18,11 +18,11 @@ export default defineConfig({
       background: '#FFE6C9',
       primary: '#73114B',
       secondary: '#7F265B',
-      title: '#525252',
+      title1: '#525252',
       title2: '#828282',
       inputfield: '#DED2D9',
       placeholder: '#E0E0E0',
-      muted: '#A1A1A1',
+      checkbox: '#A1A1A1',
     },
   },
   presets: [
