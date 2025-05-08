@@ -11,7 +11,5 @@ Interactive elements with optional microanimations
 
 Optional i18n (multi-language) support
 
-Strict CSRF + session-based authentication (no localStorage or sessionStorage)
-
 🔐 **Backend integration**
 A minimal backend is provided with CSRF token
