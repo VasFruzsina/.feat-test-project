@@ -32,7 +32,7 @@ export default defineConfig({
     presetTypography(),
     presetWebFonts({
       fonts: {
-        // ...
+        nunito: 'Nunito Sans',
       },
     }),
   ],
