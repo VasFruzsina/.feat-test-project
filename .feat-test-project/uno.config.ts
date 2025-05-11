@@ -10,12 +10,17 @@ import {
 } from 'unocss'
 
 export default defineConfig({
+  content: {
+    pipeline: {
+      include: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+    },
+  },
   shortcuts: [
     // ...
   ],
   theme: {
     colors: {
-      background: '#FFE6C9',
+      lightpeach: '#FFE6C9',
       primary: '#73114B',
       secondary: '#7F265B',
       title1: '#525252',
@@ -36,5 +41,6 @@ export default defineConfig({
       },
     }),
   ],
+  safelist: ['bg-lightpeach', 'text-primary', 'text-title1', 'text-title2'],
   transformers: [transformerDirectives(), transformerVariantGroup()],
 })
