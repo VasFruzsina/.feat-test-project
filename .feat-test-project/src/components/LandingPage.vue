@@ -12,7 +12,7 @@
 
     <img
       src="../assets/planet2.svg"
-      class="absolute bottom-[9rem] right-[5%] lg:right-[39%] w-[7vw] lg:w-[8vw] z-20"
+      class="absolute bottom-[9rem] right-[8%] lg:right-[39%] bottom-50 w-[7vw] lg:w-[8vw] z-20"
       alt="Planet bottom right"
     />
 
