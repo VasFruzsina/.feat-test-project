@@ -43,7 +43,6 @@ import LoginView from './LoginView.vue'
 import LoggedInView from './LoggedInView.vue'
 
 const { t, locale } = useI18n()
-
 const isLoggedIn = ref(false)
 const loginForm = ref()
 const user = ref(null)
@@ -57,13 +56,12 @@ function handleLoginSuccess(userData: any) {
   user.value = userData
   isLoggedIn.value = true
 }
-
 async function logout() {
   try {
-    await api.post('/api/auth/logout')
+    await api.post('/auth/logout', {}, { withCredentials: true })
 
     try {
-      await api.get('/api/auth/user')
+      await api.get('/auth/user', { withCredentials: true })
       console.warn('A session még mindig él!')
     } catch {
       isLoggedIn.value = false
@@ -79,7 +77,7 @@ async function logout() {
 
 onMounted(async () => {
   try {
-    const res = await api.get('/api/auth/user')
+    const res = await api.get('/auth/user')
     if (res.data) {
       isLoggedIn.value = true
       console.log('Session aktív:', res.data)
