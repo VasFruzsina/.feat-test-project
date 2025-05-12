@@ -19,7 +19,8 @@
         </p>
 
         <form>
-          <LoginView />
+          <!-- <LoginView /> -->
+          <LoggedInView />
           <button class="w-full bg-primary text-white py-2 rounded">
             {{ t('login') }}
           </button>
@@ -38,6 +39,7 @@
 
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
+import LoggedInView from '../components/LoggedInView.vue'
 import LoginView from './LoginView.vue'
 
 const { t, locale } = useI18n()
