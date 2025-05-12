@@ -2,45 +2,90 @@
   <div class="lg:w-5/12 w-full bg-white px-6 py-6 min-h-screen flex flex-col">
     <div class="flex justify-between items-center mb-12">
       <img src="../assets/feat_logo.svg" alt="feat logo" class="h-8" />
-
       <div class="flex gap-x-3 text-sm font-medium text-gray-700">
-        <span class="cursor-pointer hover:text-primary" @click="locale = 'hu'"> HU </span>
-        <span class="cursor-pointer hover:text-primary" @click="locale = 'en'"> EN </span>
+        <span class="cursor-pointer hover:text-primary" @click="locale = 'hu'">HU</span>
+        <span class="cursor-pointer hover:text-primary" @click="locale = 'en'">EN</span>
       </div>
     </div>
 
     <div class="flex-grow flex items-start justify-center">
       <div class="w-full max-w-md">
-        <h2 class="text-2xl font-bold mb-2">
-          {{ t('h1') }}
-        </h2>
-        <p class="text-title2 mb-6">
-          {{ t('description') }}
-        </p>
+        <h2 class="text-2xl font-bold mb-2">{{ t('h1') }}</h2>
+        <p class="text-title2 mb-6">{{ t('description') }}</p>
 
-        <form>
-          <!-- <LoginView /> -->
-          <LoggedInView />
-          <button class="w-full bg-primary text-white py-2 rounded">
+        <template v-if="!isLoggedIn">
+          <LoginView ref="loginForm" @login-success="handleLoginSuccess" />
+          <button class="w-full bg-primary text-white py-2 rounded mt-4" @click="submitLogin">
             {{ t('login') }}
           </button>
-
           <p class="text-sm text-left mt-4">
             {{ t('notapplied') }}
-            <a href="#" class="text-primary font-semibold">
-              {{ t('account') }}
-            </a>
+            <a href="#" class="text-primary font-semibold">{{ t('account') }}</a>
           </p>
-        </form>
+        </template>
+
+        <template v-else>
+          <LoggedInView />
+          <button class="w-full bg-gray-300 text-black py-2 rounded mt-4" @click="logout">
+            {{ t('logout') }}
+          </button>
+        </template>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import LoggedInView from '../components/LoggedInView.vue'
+import api from '@/api'
 import LoginView from './LoginView.vue'
+import LoggedInView from './LoggedInView.vue'
 
 const { t, locale } = useI18n()
+
+const isLoggedIn = ref(false)
+const loginForm = ref()
+const user = ref(null)
+
+function submitLogin() {
+  loginForm.value?.login()
+}
+
+function handleLoginSuccess(userData: any) {
+  console.log('Bejelentkezett:', userData)
+  user.value = userData
+  isLoggedIn.value = true
+}
+
+async function logout() {
+  try {
+    await api.post('/api/auth/logout')
+
+    try {
+      await api.get('/api/auth/user')
+      console.warn('A session még mindig él!')
+    } catch {
+      isLoggedIn.value = false
+      user.value = null
+
+      loginForm.value?.resetFields?.()
+      console.log('Kijelentkezett és mezők törölve.')
+    }
+  } catch (err) {
+    console.error('Kijelentkezés sikertelen:', err)
+  }
+}
+
+onMounted(async () => {
+  try {
+    const res = await api.get('/api/auth/user')
+    if (res.data) {
+      isLoggedIn.value = true
+      console.log('Session aktív:', res.data)
+    }
+  } catch {
+    isLoggedIn.value = false
+  }
+})
 </script>

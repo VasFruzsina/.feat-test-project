@@ -11,4 +11,13 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://frontend-test-task.staging.feat.agency',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 })
