@@ -2,14 +2,14 @@
   <div class="w-[86%]">
     <div class="mb-3">
       <label for="email" class="block text-[14px] text-title2 font-semibold mb-1">Email</label>
-      <input type="text" placeholder="hello@feat.hu" class="custom-input p-3" />
+      <input type="email" v-model="email" placeholder="hello@feat.hu" class="custom-input p-3" />
     </div>
 
     <div class="mb-1">
       <label for="password" class="block text-[14px] text-title2 font-semibold mb-1">
         {{ t('password') }}
       </label>
-      <input type="password" placeholder="password" class="custom-input p-3" />
+      <input type="password" v-model="password" placeholder="password" class="custom-input p-3" />
     </div>
 
     <div class="flex justify-between items-center mb-4 text-sm">

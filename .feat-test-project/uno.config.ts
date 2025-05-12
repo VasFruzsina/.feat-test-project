@@ -30,6 +30,9 @@ export default defineConfig({
       inputfield: '#DED2D9',
       placeholder: '#E0E0E0',
       checkbox: '#A1A1A1',
+      red: '#FF0000',
+      green: '#008000',
+      blue: '#0000FF',
     },
   },
   presets: [

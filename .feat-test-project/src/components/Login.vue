@@ -22,8 +22,14 @@
 
     <div class="flex-grow flex items-start justify-center">
       <div class="w-full">
-        <h1 class="text-[36px] font-bold text-title1 p-0" v-html="t('h1')"></h1>
-        <p class="text-title1 text-[16px] mb-8">{{ t('description') }}</p>
+        <h1
+          class="text-[36px] text-title1 p-0"
+          v-html="isLoggedIn ? t('h1_loggedin') : t('h1')"
+        ></h1>
+        <p
+          class="text-title1 text-[16px] mb-8"
+          v-html="isLoggedIn ? t('description_loggedin') : t('description')"
+        ></p>
 
         <template v-if="!isLoggedIn">
           <LoginView ref="loginForm" @login-success="handleLoginSuccess" />
@@ -40,9 +46,9 @@
         </template>
 
         <template v-else>
-          <LoggedInView />
+          <LoggedInView :user="user" />
           <button
-            class="w-[86%] bg-secondary text-black py-2.5 rounded mt-4 border-none text-[18] font-extrabold focus:outline-none p-2 transition transform hover:bg-hover hover:scale-[1.03]"
+            class="w-[86%] bg-secondary text-white py-2.5 rounded mt-4 border-none text-[18] font-extrabold focus:outline-none p-2 transition transform hover:bg-hover hover:scale-[1.03]"
             @click="logout"
           >
             {{ t('logout') }}

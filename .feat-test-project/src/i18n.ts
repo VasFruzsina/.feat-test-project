@@ -3,9 +3,11 @@ import { createI18n } from 'vue-i18n'
 const messages = {
   en: {
     h1: 'Join to <span class="italic font-bold">feat.</span>',
+    h1_loggedin: 'Hello <span class="font-bold">John Carmack!</span>',
     h2: 'Any program is only as good as it is useful',
     h3: 'The aim is to consistently craft pixel-perfect and high-performance solutions',
     description: 'See what will going to happen with your life.',
+    description_loggedin: 'Job title: <span class="font-bold">Frontend Developer</span>',
     password: 'Password',
     remember: 'Remember Me',
     forgot: 'Forgot Password?',
@@ -22,8 +24,10 @@ const messages = {
   },
   hu: {
     h1: 'Csatlakozz a <span class="italic font-bold">feat.</span>-hez',
+    h1_loggedin: 'Szia <span class="font-bold">John Carmack!</span>',
     h2: 'Egy program annyit ér, amennyire hasznos',
     h3: 'A cél, hogy mindig pixelpontos és nagy teljesítményű megoldásokat alkossunk',
+    description_loggedin: 'Pozíció: <span class="font-bold">Frontend Fejlesztő</span>',
     description: 'Nézd meg, mi történik majd az életeddel.',
     password: 'Jelszó',
     remember: 'Emlékezz rám',
