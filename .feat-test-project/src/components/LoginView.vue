@@ -1,6 +1,6 @@
 <template>
   <div class="w-[86%]">
-    <div class="mb-4">
+    <div class="mb-3">
       <label for="email" class="block text-[14px] text-title2 font-semibold mb-1">Email</label>
       <input type="text" placeholder="hello@feat.hu" class="custom-input p-3" />
     </div>
@@ -17,7 +17,7 @@
         <input type="checkbox" class="accent-secondary" />
         {{ t('remember') }}
       </label>
-      <a href="#" class="text-secondary font-semibold text-[12px]">
+      <a href="#" class="text-secondary font-semibold text-[12px] hover:text-hover2">
         {{ t('forgot') }}
       </a>
     </div>

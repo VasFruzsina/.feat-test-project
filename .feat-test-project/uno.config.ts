@@ -23,6 +23,8 @@ export default defineConfig({
       lightpeach: '#FFE6C9',
       primary: '#73114B',
       secondary: '#7F265B',
+      hover: '#9e3d76',
+      hover2: '#bb5b91',
       title1: '#525252',
       title2: '#828282',
       inputfield: '#DED2D9',

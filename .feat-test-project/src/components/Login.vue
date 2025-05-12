@@ -1,6 +1,6 @@
 <template>
   <div class="w-full bg-white px-6 py-6 min-h-screen flex flex-col">
-    <div class="flex justify-between items-center mb-12">
+    <div class="flex justify-between items-center mb-18">
       <img src="../assets/feat_logo.svg" alt="feat logo" class="h-8" />
       <div class="flex gap-x-3 text-sm font-medium text-gray-700">
         <span
@@ -22,27 +22,27 @@
 
     <div class="flex-grow flex items-start justify-center">
       <div class="w-full">
-        <h1 class="text-[36px] font-bold text-title1" v-html="t('h1')"></h1>
-        <p class="text-title1 text-[16px] mb-3">{{ t('description') }}</p>
+        <h1 class="text-[36px] font-bold text-title1 p-0" v-html="t('h1')"></h1>
+        <p class="text-title1 text-[16px] mb-8">{{ t('description') }}</p>
 
         <template v-if="!isLoggedIn">
           <LoginView ref="loginForm" @login-success="handleLoginSuccess" />
           <button
-            class="w-[86%] bg-secondary text-white py-2.5 rounded mt-4 border-none focus:outline-none text-[18] font-extrabold"
+            class="w-[86%] bg-secondary text-white py-2.5 rounded mt-4 border-none focus:outline-none text-[18] font-extrabold transition transform hover:bg-hover hover:scale-[1.02]"
             @click="submitLogin"
           >
             {{ t('login') }}
           </button>
           <p class="text-[14px] text-left mt-8 text-title2">
             {{ t('notapplied') }}
-            <a href="#" class="text-primary font-semibold">{{ t('account') }}</a>
+            <a href="#" class="text-primary font-semibold hover:text-hover2">{{ t('account') }}</a>
           </p>
         </template>
 
         <template v-else>
           <LoggedInView />
           <button
-            class="w-[86%] bg-secondary text-black py-2.5 rounded mt-4 border-none text-[18] font-extrabold focus:outline-none p-2"
+            class="w-[86%] bg-secondary text-black py-2.5 rounded mt-4 border-none text-[18] font-extrabold focus:outline-none p-2 transition transform hover:bg-hover hover:scale-[1.03]"
             @click="logout"
           >
             {{ t('logout') }}
