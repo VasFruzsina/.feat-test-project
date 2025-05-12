@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:w-5/12 w-full bg-white px-6 py-6 min-h-screen flex flex-col">
+  <div class="w-full bg-white px-6 py-6 min-h-screen flex flex-col">
     <div class="flex justify-between items-center mb-12">
       <img src="../assets/feat_logo.svg" alt="feat logo" class="h-8" />
       <div class="flex gap-x-3 text-sm font-medium text-gray-700">
@@ -9,9 +9,9 @@
     </div>
 
     <div class="flex-grow flex items-start justify-center">
-      <div class="w-full max-w-md">
-        <h2 class="text-2xl font-bold mb-2">{{ t('h1') }}</h2>
-        <p class="text-title2 mb-6">{{ t('description') }}</p>
+      <div class="w-full">
+        <h1 class="text-[36px] font-bold text-title1" v-html="t('h1')"></h1>
+        <p class="text-title1 text-[16px] mb-3">{{ t('description') }}</p>
 
         <template v-if="!isLoggedIn">
           <LoginView ref="loginForm" @login-success="handleLoginSuccess" />

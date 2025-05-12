@@ -1,17 +1,16 @@
 <template>
-  <input
-    type="email"
-    v-model="email"
-    placeholder="hello@feat.hu"
-    class="w-full p-2 border rounded mb-4"
-  />
+  <div class="mb-4">
+    <label for="email" class="block text-[14px] text-title2 mb-1">Email</label>
+    <input type="text" placeholder="hello@feat.hu" class="custom-input p-3" />
+  </div>
 
-  <input
-    type="password"
-    v-model="password"
-    :placeholder="t('password')"
-    class="w-full p-2 border rounded mb-2"
-  />
+  <div class="mb-4">
+    <label for="password" class="block text-[14px] text-title2 mb-1">
+      {{ t('password') }}
+    </label>
+    <input type="password" placeholder="password" class="custom-input p-3" />
+  </div>
+
   <div class="flex justify-between items-center mb-4 text-sm">
     <label class="flex items-center gap-2">
       <input type="checkbox" />
@@ -22,6 +21,33 @@
     </a>
   </div>
 </template>
+
+<style>
+.custom-input {
+  width: 100%;
+  background-color: white;
+  font-size: 14px;
+  border: 1px solid #ded2d9;
+  border-radius: 4px;
+  padding: 8px;
+  box-shadow: none;
+  outline: none;
+}
+
+.custom-input:focus {
+  border: 2px solid #73114b;
+}
+
+.custom-input::placeholder {
+  color: #e0e0e0;
+}
+
+input.custom-input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px white inset;
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+  -webkit-text-fill-color: #000;
+}
+</style>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
