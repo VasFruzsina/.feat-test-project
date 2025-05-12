@@ -27,10 +27,13 @@
 
         <template v-if="!isLoggedIn">
           <LoginView ref="loginForm" @login-success="handleLoginSuccess" />
-          <button class="w-full bg-primary text-white py-2 rounded mt-4" @click="submitLogin">
+          <button
+            class="w-[86%] bg-secondary text-white py-2.5 rounded mt-4 border-none focus:outline-none text-[18] font-extrabold"
+            @click="submitLogin"
+          >
             {{ t('login') }}
           </button>
-          <p class="text-sm text-left mt-4">
+          <p class="text-[14px] text-left mt-8 text-title2">
             {{ t('notapplied') }}
             <a href="#" class="text-primary font-semibold">{{ t('account') }}</a>
           </p>
@@ -38,7 +41,10 @@
 
         <template v-else>
           <LoggedInView />
-          <button class="w-full bg-gray-300 text-black py-2 rounded mt-4" @click="logout">
+          <button
+            class="w-[86%] bg-secondary text-black py-2.5 rounded mt-4 border-none text-[18] font-extrabold focus:outline-none p-2"
+            @click="logout"
+          >
             {{ t('logout') }}
           </button>
         </template>

@@ -1,23 +1,23 @@
 <template>
   <div class="w-[86%]">
     <div class="mb-4">
-      <label for="email" class="block text-[14px] text-title2 mb-1">Email</label>
+      <label for="email" class="block text-[14px] text-title2 font-semibold mb-1">Email</label>
       <input type="text" placeholder="hello@feat.hu" class="custom-input p-3" />
     </div>
 
-    <div class="mb-4">
-      <label for="password" class="block text-[14px] text-title2 mb-1">
+    <div class="mb-1">
+      <label for="password" class="block text-[14px] text-title2 font-semibold mb-1">
         {{ t('password') }}
       </label>
       <input type="password" placeholder="password" class="custom-input p-3" />
     </div>
 
     <div class="flex justify-between items-center mb-4 text-sm">
-      <label class="flex items-center gap-2">
-        <input type="checkbox" />
+      <label class="flex items-center gap-1.5 text-[12px] text-checkbox">
+        <input type="checkbox" class="accent-secondary" />
         {{ t('remember') }}
       </label>
-      <a href="#" class="text-primary">
+      <a href="#" class="text-secondary font-semibold text-[12px]">
         {{ t('forgot') }}
       </a>
     </div>
