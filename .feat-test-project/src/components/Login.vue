@@ -3,8 +3,20 @@
     <div class="flex justify-between items-center mb-12">
       <img src="../assets/feat_logo.svg" alt="feat logo" class="h-8" />
       <div class="flex gap-x-3 text-sm font-medium text-gray-700">
-        <span class="cursor-pointer hover:text-primary" @click="locale = 'hu'">HU</span>
-        <span class="cursor-pointer hover:text-primary" @click="locale = 'en'">EN</span>
+        <span
+          class="cursor-pointer text-title1"
+          :class="{ 'font-extrabold text-primary': locale === 'hu' }"
+          @click="locale = 'hu'"
+        >
+          HU
+        </span>
+        <span
+          class="cursor-pointer text-title1"
+          :class="{ 'font-extrabold text-primary': locale === 'en' }"
+          @click="locale = 'en'"
+        >
+          EN
+        </span>
       </div>
     </div>
 

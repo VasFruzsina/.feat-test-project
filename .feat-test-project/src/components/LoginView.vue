@@ -1,24 +1,26 @@
 <template>
-  <div class="mb-4">
-    <label for="email" class="block text-[14px] text-title2 mb-1">Email</label>
-    <input type="text" placeholder="hello@feat.hu" class="custom-input p-3" />
-  </div>
+  <div class="w-[86%]">
+    <div class="mb-4">
+      <label for="email" class="block text-[14px] text-title2 mb-1">Email</label>
+      <input type="text" placeholder="hello@feat.hu" class="custom-input p-3" />
+    </div>
 
-  <div class="mb-4">
-    <label for="password" class="block text-[14px] text-title2 mb-1">
-      {{ t('password') }}
-    </label>
-    <input type="password" placeholder="password" class="custom-input p-3" />
-  </div>
+    <div class="mb-4">
+      <label for="password" class="block text-[14px] text-title2 mb-1">
+        {{ t('password') }}
+      </label>
+      <input type="password" placeholder="password" class="custom-input p-3" />
+    </div>
 
-  <div class="flex justify-between items-center mb-4 text-sm">
-    <label class="flex items-center gap-2">
-      <input type="checkbox" />
-      {{ t('remember') }}
-    </label>
-    <a href="#" class="text-primary">
-      {{ t('forgot') }}
-    </a>
+    <div class="flex justify-between items-center mb-4 text-sm">
+      <label class="flex items-center gap-2">
+        <input type="checkbox" />
+        {{ t('remember') }}
+      </label>
+      <a href="#" class="text-primary">
+        {{ t('forgot') }}
+      </a>
+    </div>
   </div>
 </template>
 
