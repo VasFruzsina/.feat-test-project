@@ -1,34 +1,65 @@
 <template>
-  <div class="lg:w-5/12 w-full bg-white px-6 py-6 min-h-screen flex flex-col">
-    <div class="flex justify-between items-center mb-12">
+  <div class="w-full h-full bg-white px-6 py-6 flex flex-col">
+    <div class="flex justify-between items-center mb-18">
       <img src="../assets/feat_logo.svg" alt="feat logo" class="h-8" />
       <div class="flex gap-x-3 text-sm font-medium text-gray-700">
-        <span class="cursor-pointer hover:text-primary" @click="locale = 'hu'">HU</span>
-        <span class="cursor-pointer hover:text-primary" @click="locale = 'en'">EN</span>
+        <span
+          class="cursor-pointer text-title1"
+          :class="{ 'font-extrabold text-primary': locale === 'hu' }"
+          @click="locale = 'hu'"
+        >
+          HU
+        </span>
+        <span
+          class="cursor-pointer text-title1"
+          :class="{ 'font-extrabold text-primary': locale === 'en' }"
+          @click="locale = 'en'"
+        >
+          EN
+        </span>
       </div>
     </div>
 
-    <div class="flex-grow flex items-start justify-center">
-      <div class="w-full max-w-md">
-        <h2 class="text-2xl font-bold mb-2">{{ t('h1') }}</h2>
-        <p class="text-title2 mb-6">{{ t('description') }}</p>
+    <div class="flex-grow flex md:items-start justify-center">
+      <div class="w-full">
+        <h1
+          class="text-[36px] text-title1 p-0"
+          v-html="isLoggedIn ? t('h1_loggedin') : t('h1')"
+        ></h1>
+        <p
+          class="text-title1 text-[16px] mb-8"
+          v-html="isLoggedIn ? t('description_loggedin') : t('description')"
+        ></p>
 
         <template v-if="!isLoggedIn">
           <LoginView ref="loginForm" @login-success="handleLoginSuccess" />
-          <button class="w-full bg-primary text-white py-2 rounded mt-4" @click="submitLogin">
-            {{ t('login') }}
-          </button>
-          <p class="text-sm text-left mt-4">
-            {{ t('notapplied') }}
-            <a href="#" class="text-primary font-semibold">{{ t('account') }}</a>
-          </p>
+          <div class="text-center md:text-left">
+            <button
+              class="w-[86%] bg-secondary text-white py-2.5 rounded mt-4 border-none focus:outline-none text-[18] font-extrabold transition transform hover:bg-hover hover:scale-[1.02]"
+              @click="submitLogin"
+            >
+              {{ t('login') }}
+            </button>
+
+            <p class="text-[14px] mt-8 text-title2">
+              {{ t('notapplied') }}
+              <a href="#" class="text-primary font-semibold hover:text-hover2">{{
+                t('account')
+              }}</a>
+            </p>
+          </div>
         </template>
 
         <template v-else>
-          <LoggedInView />
-          <button class="w-full bg-gray-300 text-black py-2 rounded mt-4" @click="logout">
-            {{ t('logout') }}
-          </button>
+          <LoggedInView :user="user" />
+          <div class="text-center md:text-left">
+            <button
+              class="w-[86%] bg-secondary text-white py-2.5 rounded mt-4 border-none text-[18] font-extrabold focus:outline-none p-2 transition transform hover:bg-hover hover:scale-[1.03]"
+              @click="logout"
+            >
+              {{ t('logout') }}
+            </button>
+          </div>
         </template>
       </div>
     </div>

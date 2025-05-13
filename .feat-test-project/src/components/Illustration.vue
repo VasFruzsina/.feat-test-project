@@ -1,24 +1,19 @@
 <template>
-  <div class="flex flex-col lg:w-7/12">
-    <div class="w-full flex flex-col justify-center items-center py-10 text-center relative">
-      <img src="../assets/planet1.svg" class="absolute top-0 left-0 z-20 w-48" />
-
+  <div class="flex flex-col h-auto sm:h-full">
+    <div class="w-full flex flex-col justify-center items-center text-center">
       <img
         src="../assets/skeleton.svg"
-        class="absolute top-0 left-1/2 -translate-x-1/2 z-10 w-auto"
+        class="top-0 z-10 mt-10 mb-12 sm:m-0 fade-in-delay-0 slow-pulse w-[75%] sm:w-[95%]"
         alt="Skeleton"
       />
-
-      <div class="mt-[550px]">
-        <h2 class="text-primary text-2xl lg:text-3xl font-bold mb-2">
+      <div class="p-5 z-20 relative top-[-4rem]">
+        <h2 class="text-primary text-[32px] font-extrabold leading-10 mb-5 fade-in-delay-1">
           {{ t('h2') }}
         </h2>
-        <p class="text-primary text-base lg:text-lg max-w-md mx-auto">
+        <h3 class="text-primary text-[20px] mx-auto leading-8 fade-in-delay-2">
           {{ t('h3') }}
-        </p>
+        </h3>
       </div>
-
-      <img src="../assets/planet2.svg" class="absolute bottom-0 right-0 top-180 w-27 z-0" />
     </div>
   </div>
 </template>
