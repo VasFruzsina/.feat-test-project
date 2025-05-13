@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[86%]">
+  <div class="w-full md:w-[86%] h-auto sm:h-full">
     <div class="mb-3">
       <label for="email" class="block text-[14px] text-title2 font-semibold mb-1">Email</label>
       <input type="email" v-model="email" placeholder="hello@feat.hu" class="custom-input p-3" />
