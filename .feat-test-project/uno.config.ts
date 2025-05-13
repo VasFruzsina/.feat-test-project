@@ -16,7 +16,11 @@ export default defineConfig({
     },
   },
   shortcuts: [
-    // ...
+    ['planet-float', 'animate-float'],
+    ['planet-spin', 'animate-spin'],
+    ['planet-bounce', 'animate-bounce'],
+    ['planet-pulse', 'animate-pulse'],
+    ['planet-combo', 'animate-float animate-spin'],
   ],
   theme: {
     colors: {
@@ -33,6 +37,17 @@ export default defineConfig({
       red: '#FF0000',
       green: '#008000',
       blue: '#0000FF',
+    },
+    extend: {
+      keyframes: {
+        'fade-in':
+          '{from {opacity: 0; transform: translateY(10px);} to {opacity: 1; transform: translateY(0);}}',
+      },
+      animation: {
+        'fade-in-0': 'fade-in 1s ease-out 0s both',
+        'fade-in-1': 'fade-in 1s ease-out 1s both',
+        'fade-in-2': 'fade-in 1s ease-out 2s both',
+      },
     },
   },
   presets: [

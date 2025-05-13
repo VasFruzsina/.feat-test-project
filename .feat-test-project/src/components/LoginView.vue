@@ -87,9 +87,9 @@ async function login() {
     emit('login-success', response.data)
   } catch (err: any) {
     if (err.response?.status === 422) {
-      alert('❌ Hibás email vagy jelszó.')
+      alert('Hibás email vagy jelszó.')
     } else {
-      alert('⚠️ Ismeretlen hiba történt a bejelentkezés során.')
+      alert('Ismeretlen hiba történt a bejelentkezés során.')
       console.error('Login failed', err)
     }
   }
