@@ -17,7 +17,7 @@
     />
 
     <div class="sm:col-span-5 relative z-10">
-      <Login />
+      <Login class="slide-in-right" />
     </div>
   </div>
 </template>
