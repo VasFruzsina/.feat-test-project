@@ -10,19 +10,44 @@ import {
 } from 'unocss'
 
 export default defineConfig({
+  content: {
+    pipeline: {
+      include: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+    },
+  },
   shortcuts: [
-    // ...
+    ['planet-float', 'animate-float'],
+    ['planet-spin', 'animate-spin'],
+    ['planet-bounce', 'animate-bounce'],
+    ['planet-pulse', 'animate-pulse'],
+    ['planet-combo', 'animate-float animate-spin'],
   ],
   theme: {
     colors: {
-      background: '#FFE6C9',
+      lightpeach: '#FFE6C9',
       primary: '#73114B',
       secondary: '#7F265B',
+      hover: '#9e3d76',
+      hover2: '#bb5b91',
       title1: '#525252',
       title2: '#828282',
       inputfield: '#DED2D9',
       placeholder: '#E0E0E0',
       checkbox: '#A1A1A1',
+      red: '#FF0000',
+      green: '#008000',
+      blue: '#0000FF',
+    },
+    extend: {
+      keyframes: {
+        'fade-in':
+          '{from {opacity: 0; transform: translateY(10px);} to {opacity: 1; transform: translateY(0);}}',
+      },
+      animation: {
+        'fade-in-0': 'fade-in 1s ease-out 0s both',
+        'fade-in-1': 'fade-in 1s ease-out 1s both',
+        'fade-in-2': 'fade-in 1s ease-out 2s both',
+      },
     },
   },
   presets: [
@@ -32,9 +57,16 @@ export default defineConfig({
     presetTypography(),
     presetWebFonts({
       fonts: {
-        nunito: 'Nunito Sans',
+        sans: 'Nunito Sans',
+        nunito: [
+          {
+            name: 'Nunito Sans',
+            weights: ['400', '600', '700', '800', '900'],
+          },
+        ],
       },
     }),
   ],
+  safelist: ['bg-lightpeach', 'text-primary', 'text-title1', 'text-title2'],
   transformers: [transformerDirectives(), transformerVariantGroup()],
 })
